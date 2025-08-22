@@ -11,5 +11,6 @@
   "description": "",
   "dependencies": {
     "sharp": "^0.33.5"
-  }
+  },
+  "type": "module"
 }

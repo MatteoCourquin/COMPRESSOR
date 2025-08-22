@@ -3,6 +3,11 @@ import { cpus } from 'os';
 import { join, parse } from 'path';
 import { readdir, mkdir, stat } from 'fs/promises';
 import { Worker, isMainThread, parentPort, workerData } from 'worker_threads';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 function formatFilename(filename) {
   return filename.toLowerCase()
@@ -129,7 +134,8 @@ async function batchProcessImages(inputDir, outputDir) {
     imageFiles.map(file => {
       return new Promise((resolve) => {
         const worker = new Worker(__filename, {
-          workerData: { inputFile: file, outputDir }
+          workerData: { inputFile: file, outputDir },
+          type: 'module'
         });
         
         worker.on('message', resolve);
