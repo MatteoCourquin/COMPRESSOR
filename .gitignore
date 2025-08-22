@@ -1,0 +1,34 @@
+# Dépendances Node
+node_modules/
+
+# Dépendances Python
+__pycache__/
+*.py[cod]
+
+# Fichiers macOS
+.DS_Store
+
+# Médias lourds (on versionne pas les inputs ni outputs réels)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.m4v
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.tiff
+*.avif
+*.heic
+
+# Sorties générées
+images_output/*
+videos_output/*
+
+# Garder les .gitkeep dans chaque dossier
+!images_output/.gitkeep
+!videos_output/.gitkeep
+!images_input/.gitkeep
+!videos_input/.gitkeep
